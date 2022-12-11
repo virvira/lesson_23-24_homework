@@ -1,3 +1,6 @@
+import re
+
+
 def get_data_from_file(file_name: str) -> list:
     with open(file_name, 'r', encoding='utf-8') as f:
         data_list = list(map(lambda row: row.strip(), f))
@@ -38,3 +41,13 @@ def sort_query(param: str, data_list: list) -> list:
 def limit_query(param: str, data_list: list) -> list:
     rows_count = int(param)
     return data_list[:rows_count]
+
+
+def regex_query(param: str, data_list: list) -> list:
+    res_list = []
+    for item in data_list:
+        regex = re.compile(param)
+        m = regex.findall(item)
+        if m:
+            res_list.append(item)
+    return res_list

@@ -1,5 +1,5 @@
 import os
-from utils import get_data_from_file, filter_query, map_query, unique_query, sort_query, limit_query
+from utils import get_data_from_file, filter_query, map_query, unique_query, sort_query, limit_query, regex_query
 
 from flask import Flask, request, jsonify
 
@@ -17,7 +17,8 @@ def perform_query():
         'map': map_query,
         'unique': unique_query,
         'sort': sort_query,
-        'limit': limit_query
+        'limit': limit_query,
+        'regex': regex_query
     }
     try:
         file_name = req_json['file_name']
