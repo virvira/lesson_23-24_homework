@@ -23,11 +23,11 @@ def perform_query() -> Union[Response, str]:
         'regex': regex_query
     }
     try:
-        file_name: str = req_json['file_name']
-        cmd1: str = req_json['cmd1']
-        value1: str = req_json['value1']
-        cmd2: str = req_json['cmd2']
-        value2: str = req_json['value2']
+        file_name: Optional[str] = req_json['file_name']
+        cmd1: Optional[str] = req_json['cmd1']
+        value1: Optional[str] = req_json['value1']
+        cmd2: Optional[str] = req_json['cmd2']
+        value2: Optional[str] = req_json['value2']
     except Exception as e:
         return Response(f"Поле {e} не найдено", status=400)
 
