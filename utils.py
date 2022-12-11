@@ -1,6 +1,6 @@
 import re
 
-from typing import List, Iterator
+from typing import List, Iterator, Any
 
 
 def get_data_from_file(file_name: str) -> Iterator[str]:
@@ -23,7 +23,7 @@ def map_query(param: str, data_list: list) -> list:
     return list(res)
 
 
-def unique_query(data_list: list, *args, **kwargs) -> list:
+def unique_query(data_list: list, *args: Any, **kwargs: Any) -> list:
     list_of_unique_rows = []
     unique_rows = set()
 

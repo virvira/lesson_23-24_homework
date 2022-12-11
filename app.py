@@ -37,8 +37,8 @@ def perform_query():
     res = []
 
     if cmd1 and cmd2 in valid_commands:
-        res_cmd1 = valid_commands[cmd1](value1, data)
-        res = valid_commands[cmd2](value2, res_cmd1)
+        res_cmd1 = valid_commands[cmd1](param=value1, data_list=data)
+        res = valid_commands[cmd2](param=value2, data_list=res_cmd1)
 
     if res is not None:
         return jsonify(res)
