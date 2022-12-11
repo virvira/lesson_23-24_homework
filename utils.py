@@ -1,10 +1,15 @@
 import re
 
+from typing import List, Iterator
 
-def get_data_from_file(file_name: str) -> list:
+
+def get_data_from_file(file_name: str) -> Iterator[str]:
     with open(file_name, 'r', encoding='utf-8') as f:
-        data_list = list(map(lambda row: row.strip(), f))
-    return data_list
+        data_list: List[str] = f.readlines()
+        for item in data_list:
+            yield item
+    #     data_list = list(map(lambda row: row.strip(), f))
+    # return data_list
 
 
 def filter_query(param: str, data_list: list) -> list:
